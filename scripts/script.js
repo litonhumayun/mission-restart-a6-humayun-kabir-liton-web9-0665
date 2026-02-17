@@ -10,7 +10,19 @@ const productDetailURL = "https://fakestoreapi.com/products/${id}";
 //   const products = await res.json();
 //   console.log(products);
 // };
-
+const updateCart = () => {
+  const cartElement = document.getElementById("cart-count");
+  console.log(cartElement);
+  const cartCount = JSON.parse(localStorage.getItem("cart")) || 0;
+  cartElement.textContent = cartCount;
+};
+const addToCart = (id) => {
+  let currentCart = JSON.parse(localStorage.getItem("cart")) || 0;
+  currentCart++;
+  console.log(currentCart);
+  localStorage.setItem("cart", JSON.stringify(currentCart));
+  updateCart();
+};
 const loadTrendingProducts = () => {
   fetch(productsURL)
     .then((res) => res.json())
@@ -51,7 +63,7 @@ const loadTrendingProducts = () => {
                 >
                   <i class="fa-regular fa-eye"></i> Details
                 </button>
-                <button
+                <button onclick="addToCart(${product.id})"
                   class="badge badge-outline btn btn-xs sm:btn-sm md:btn-md lg:btn-lg xl:btn-xl"
                 >
                   <i
@@ -71,3 +83,4 @@ const loadTrendingProducts = () => {
 };
 
 loadTrendingProducts();
+updateCart();
