@@ -67,8 +67,12 @@
         <div class="navbar-end">
           <a class="btn"
             ><i class="fa-solid fa-cart-arrow-down text-2xl text-black"></i>
-            <span>1</span></a
-          >
+            <span
+              id="cart-count"
+              class="absolute top-0 right-0 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center"
+              >0</span
+            >
+          </a>
         </div>
       </div>
     </header>
@@ -146,8 +150,11 @@
       </section>
       <section>
         <h1 class="text-4xl font-bold my-10">Trending now</h1>
-        <div class="grid grid-cols-1 md:grid-cols-3">
-          <div class="card bg-base-100 w-96 shadow-sm">
+        <div id="trending-products" class="grid grid-cols-1 md:grid-cols-3">
+          <p id="loading-text" class="text-center col-span-3">
+            Finding the best products for you...
+          </p>
+          <!-- <div class="card bg-base-100 w-96 shadow-sm">
             <figure>
               <img
                 src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
@@ -183,8 +190,8 @@
                 </button>
               </div>
             </div>
-          </div>
-          <div class="card bg-base-100 w-96 shadow-sm">
+          </div> -->
+          <!-- <div class="card bg-base-100 w-96 shadow-sm">
             <figure>
               <img
                 src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
@@ -257,7 +264,7 @@
                 </button>
               </div>
             </div>
-          </div>
+          </div> -->
         </div>
       </section>
     </main>
@@ -343,17 +350,21 @@
             href="#"
             title="Facebook"
             class="text-gray-400 hover:text-blue-500 transition-colors"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="currentColor"
-              viewBox="0 0 32 32"
-              class="w-5 h-5"
-            >
-              <path
-                d="M32 16c0-8.839-7.167-16-16-16-8.839 0-16 7.161-16 16 0 7.984 5.849 14.604 13.5 15.803v-11.177h-4.063v-4.625h4.063v-3.527c0-4.009 2.385-6.223 6.041-6.223 1.751 0 3.584 0.312 3.584 0.312v3.937h-2.021c-1.984 0-2.604 1.235-2.604 2.5v3h4.437l-0.713 4.625h-3.724v11.177c7.645-1.199 13.5-7.819 13.5-15.803z"
-              ></path>
-            </svg>
+            ><i class="fa-brands fa-facebook-f"></i>
+          </a>
+          <a
+            rel="noopener noreferrer"
+            href="#"
+            title="Facebook"
+            class="text-gray-400 hover:text-blue-500 transition-colors"
+            ><i class="fa-brands fa-twitter"></i>
+          </a>
+          <a
+            rel="noopener noreferrer"
+            href="#"
+            title="Facebook"
+            class="text-gray-400 hover:text-blue-500 transition-colors"
+            ><i class="fa-brands fa-github"></i>
           </a>
 
           <a
@@ -361,17 +372,7 @@
             href="#"
             title="Twitter"
             class="text-gray-400 hover:text-white transition-colors"
-          >
-            <svg
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="currentColor"
-              class="w-5 h-5"
-            >
-              <path
-                d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
-              ></path>
-            </svg>
+            ><i class="fa-brands fa-linkedin-in"></i>
           </a>
 
           <a
@@ -379,17 +380,7 @@
             href="#"
             title="Instagram"
             class="text-gray-400 hover:text-pink-500 transition-colors"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 32 32"
-              fill="currentColor"
-              class="w-5 h-5"
-            >
-              <path
-                d="M16 0c-4.349 0-4.891 0.021-6.593 0.093-1.709 0.084-2.865 0.349-3.885 0.745-1.052 0.412-1.948 0.959-2.833 1.849-0.891 0.885-1.443 1.781-1.849 2.833-0.396 1.020-0.661 2.176-0.745 3.885-0.077 1.703-0.093 2.244-0.093 6.593s0.021 4.891 0.093 6.593c0.084 1.704 0.349 2.865 0.745 3.885 0.412 1.052 0.959 1.948 1.849 2.833 0.885 0.891 1.781 1.443 2.833 1.849 1.020 0.391 2.181 0.661 3.885 0.745 1.703 0.077 2.244 0.093 6.593 0.093s4.891-0.021 6.593-0.093c1.704-0.084 2.865-0.355 3.885-0.745 1.052-0.412 1.948-0.959 2.833-1.849 0.891-0.885 1.443-1.776 1.849-2.833 0.391-1.020 0.661-2.181 0.745-3.885 0.077-1.703 0.093-2.244 0.093-6.593s-0.021-4.891-0.093-6.593c-0.084-1.704-0.355-2.871-0.745-3.885-0.412-1.052-0.959-1.948-1.849-2.833-0.885-0.891-1.776-1.443-2.833-1.849-1.020-0.396-2.181-0.661-3.885-0.745-1.703-0.077-2.244-0.093-6.593-0.093z..."
-              ></path>
-            </svg>
+            ><i class="fa-brands fa-instagram"></i>
           </a>
         </div>
       </div>
