@@ -65,14 +65,22 @@
           </ul>
         </div>
         <div class="navbar-end">
-          <a class="btn"
-            ><i class="fa-solid fa-cart-arrow-down text-2xl text-black"></i>
-            <span
-              id="cart-count"
-              class="absolute top-0 right-0 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center"
-              >0</span
-            >
-          </a>
+          <button
+            onclick="
+              alert(
+                'Only the number is being incremented. Origical product array is not being incremented.',
+              )
+            "
+          >
+            <a class="btn"
+              ><i class="fa-solid fa-cart-arrow-down text-2xl text-black"></i>
+              <span
+                id="cart-count"
+                class="absolute top-0 right-0 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center"
+                >0</span
+              >
+            </a>
+          </button>
         </div>
       </div>
     </header>
@@ -246,16 +254,26 @@
             <h3 class="tracking-wide uppercase text-gray-50">Support</h3>
             <ul class="space-y-1">
               <li>
-                <a rel="noopener noreferrer" href="#">FAQ</a>
+                <button onclick="alert('FAQ page is under construction!')">
+                  <a rel="noopener noreferrer" href="#">FAQ</a>
+                </button>
               </li>
               <li>
-                <a rel="noopener noreferrer" href="#">Shipping</a>
+                <button onclick="alert('Shipping page is under construction!')">
+                  <a rel="noopener noreferrer" href="#">Shipping</a>
+                </button>
               </li>
               <li>
-                <a rel="noopener noreferrer" href="#">Returns</a>
+                <button onclick="alert('Returns page is under construction!')">
+                  <a rel="noopener noreferrer" href="#">Returns</a>
+                </button>
               </li>
               <li>
-                <a rel="noopener noreferrer" href="#">Privacy Policy</a>
+                <button
+                  onclick="alert('Privacy Policy page is under construction!')"
+                >
+                  <a rel="noopener noreferrer" href="#">Privacy Policy</a>
+                </button>
               </li>
             </ul>
           </div>
@@ -272,7 +290,14 @@
                   placeholder="username@site.com"
                   class="input input-bordered join-item"
                 />
-                <button class="btn btn-primary join-item">Subscribe</button>
+                <button
+                  class="btn btn-primary join-item"
+                  onclick="
+                    alert('Thank you for subscribing to our newsletter!')
+                  "
+                >
+                  Subscribe
+                </button>
               </div>
             </fieldset>
           </form>

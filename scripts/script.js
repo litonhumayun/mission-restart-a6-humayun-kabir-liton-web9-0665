@@ -102,7 +102,7 @@ const loadCategoriesForProductPage = () => {
 
       // All Products button
       const allButton = document.createElement("button");
-      allButton.className = "btn btn-outline";
+      allButton.className = "btn btn-outline capitalize category-btn";
       allButton.innerText = "All Products";
       allButton.onclick = () => loadAllProductsForProductPage();
       container.appendChild(allButton);
@@ -110,7 +110,7 @@ const loadCategoriesForProductPage = () => {
       // Category buttons
       categories.forEach((category) => {
         const button = document.createElement("button");
-        button.className = "btn btn-outline capitalize";
+        button.className = "btn btn-outline capitalize category-btn";
         button.innerText = category;
         button.onclick = () => loadProductsByCategoryForProductPage(category);
         container.appendChild(button);
