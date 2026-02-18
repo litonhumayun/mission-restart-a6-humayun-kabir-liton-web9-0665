@@ -66,7 +66,8 @@ const loadTrendingProducts = () => {
       container.innerHTML = "";
       top3Products.forEach((product) => {
         const card = document.createElement("div");
-        card.className = "card bg-base-100 w-auto shadow-sm";
+        card.className =
+          "card bg-base-100 w-auto shadow-sm border border-gray-400 p-4 mx-4";
         card.innerHTML = `
           <figure><img class="h-48 object-contain" src="${product.image}" alt="${product.title}" /></figure>
           <div class="card-body">
@@ -78,7 +79,7 @@ const loadTrendingProducts = () => {
             <p>$${product.price}</p>
             <div class="card-actions justify-between">
               <button onclick="showDetails(${product.id})" class="btn btn-sm badge badge-outline">Details</button>
-              <button onclick="addToCart(${product.id})" class="btn btn-sm badge badge-outline">Add</button>
+              <button onclick="addToCart(${product.id})" class="btn btn-sm badge badge-outline bg-green-500"><i class="fa-solid fa-cart-shopping"></i>Add</button>
             </div>
           </div>
         `;
@@ -145,7 +146,8 @@ const showAllProductsForProductPage = (products) => {
   container.innerHTML = "";
   products.forEach((product) => {
     const card = document.createElement("div");
-    card.className = "card bg-base-100 w-full shadow-sm";
+    card.className =
+      "card bg-base-100 w-full shadow-sm border border-gray-400 p-4";
     card.innerHTML = `
       <figure><img src="${product.image}" alt="${product.title}" class="max-h-80 object-contain"/></figure>
       <div class="card-body">
@@ -157,7 +159,7 @@ const showAllProductsForProductPage = (products) => {
         <p>$${product.price}</p>
         <div class="card-actions justify-between">
           <button onclick="showDetails(${product.id})" class="btn btn-sm badge badge-outline">Details</button>
-          <button onclick="addToCart(${product.id})" class="btn btn-sm badge badge-outline">Add</button>
+          <button onclick="addToCart(${product.id})" class="btn btn-sm badge badge-outline bg-green-500"><i class="fa-solid fa-cart-shopping"></i>Add</button>
         </div>
       </div>
     `;
