@@ -30,8 +30,8 @@ const showDetails = (id) => {
     .then((res) => res.json())
     .then((product) => {
       modalContent.innerHTML = `
-        <div class="grid md:grid-cols-2 gap-6">
-          <div class="flex justify-center items-center">
+        <div class="grid md:grid-cols-2 gap-6 ">
+          <div class="flex justify-center items-center ">
             <img src="${product.image}" alt="${product.title}" class="max-h-80 object-contain"/>
           </div>
           <div>
@@ -66,9 +66,9 @@ const loadTrendingProducts = () => {
       container.innerHTML = "";
       top3Products.forEach((product) => {
         const card = document.createElement("div");
-        card.className = "card bg-base-100 w-96 shadow-sm";
+        card.className = "card bg-base-100 w-auto shadow-sm";
         card.innerHTML = `
-          <figure><img src="${product.image}" alt="${product.title}" /></figure>
+          <figure><img class="h-48 object-contain" src="${product.image}" alt="${product.title}" /></figure>
           <div class="card-body">
             <div class="flex justify-between">
               <h2 class="card-title">${product.category}</h2>
@@ -147,7 +147,7 @@ const showAllProductsForProductPage = (products) => {
     const card = document.createElement("div");
     card.className = "card bg-base-100 w-full shadow-sm";
     card.innerHTML = `
-      <figure><img src="${product.image}" alt="${product.title}" /></figure>
+      <figure><img src="${product.image}" alt="${product.title}" class="max-h-80 object-contain"/></figure>
       <div class="card-body">
         <div class="flex justify-between">
           <h2 class="card-title">${product.category}</h2>
